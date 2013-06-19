@@ -1,6 +1,5 @@
 <?php
-// v.4
-ini_set('precision', 20); 
+// v.5
 
 $token = 'XXXXXXX';
 $token_secret = 'XXXXXXX';
@@ -89,8 +88,7 @@ curl_setopt_array($feed, $options);
 $json = curl_exec($feed);
 curl_close($feed);
 
-//$twitter_data = json_decode($json, true);
-$twitter_data = json_decode(preg_replace ('/:\s?(\d{14,})/', ': "${1}"', $json), true);
+$twitter_data = json_decode($json, true);
 
 function processString($s) {
     return preg_replace('/https?:\/\/[\w\-\.!~#?&=+\*\'"(),\/]+/','<a href="$0">$0</a>',$s);
@@ -112,16 +110,15 @@ if (isset( $_GET["test"] )){
 
 print('<?xml version="1.0" encoding="utf-8"?>'. PHP_EOL);
 print('<?xml-stylesheet type="text/xsl" href="atom-to-html.xsl"?>'. PHP_EOL);
-print('<feed xmlns="http://www.w3.org/2005/Atom">'. PHP_EOL);
 
+print('<feed xmlns="http://www.w3.org/2005/Atom">'. PHP_EOL);
 print('<title>@'.$twitter_data[0]['user']['screen_name'].'</title>'. PHP_EOL);
-print('<link href="//abs.twimg.com/favicons/favicon.ico" rel="shortcut icon" type="image/x-icon" />'. PHP_EOL);
 
 $arrLen = count($twitter_data);
 for ($i=0; $i<$arrLen; $i++) {
 	print(PHP_EOL. '	<entry>'. PHP_EOL);
-		print('		<id>http://twitter.com/'.$twitter_data[$i]['user']['screen_name'].'/statuses/'. strval($twitter_data[$i]['id_str']) .'</id>'. PHP_EOL);
-		print('		<link href="http://twitter.com/'.$twitter_data[$i]['user']['screen_name'].'/statuses/'. strval($twitter_data[$i]['id_str']) .'" rel="alternate" type="text/html"/>'. PHP_EOL);
+		print('		<id>https://twitter.com/'.$twitter_data[$i]['user']['screen_name'].'/statuses/'. $twitter_data[$i]['id_str'] .'</id>'. PHP_EOL);
+		print('		<link href="https://twitter.com/'.$twitter_data[$i]['user']['screen_name'].'/statuses/'. $twitter_data[$i]['id_str'] .'" rel="alternate" type="text/html"/>'. PHP_EOL);
 		print('		<title>'.$twitter_data[$i]['user']['screen_name'].': '.$twitter_data[$i]['text'].'</title>'. PHP_EOL);
 		print('		<summary type="html"><![CDATA['.$twitter_data[$i]['user']['screen_name'].': '.$twitter_data[$i]['text'].']]></summary>'. PHP_EOL);
 		
