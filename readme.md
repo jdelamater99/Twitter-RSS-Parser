@@ -17,7 +17,8 @@ The things you'll need from this page are Consumer key, Consumer secret, Access 
 
 TWITTER API Limitations
 -------------
-The Twitter API limits to 15 pulls per 15 minute time period. So, if you have multiple twitter feeds that are calling every minute, the script could throw a "Too Many Requests" error. And if you have more than 15 feeds that you are checking, the script will throw the too many request error after the 15th feed. This is a Twitter imposed limitation, and I can't do anything about it.
+The Twitter API limits to 15 calls per 15 minute time period. If you exceed this threshold, the Twitter returns a "Too Many Requests" error.
+This is a Twitter imposed limitation that I have no control over.
 https://dev.twitter.com/docs/rate-limiting/1.1
 
 PHP Setup
