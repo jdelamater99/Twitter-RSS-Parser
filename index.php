@@ -1,5 +1,6 @@
 <?php
-// v.3
+// v.4
+ini_set('precision', 20); 
 
 $token = 'XXXXXXX';
 $token_secret = 'XXXXXXX';
@@ -95,6 +96,20 @@ function processString($s) {
     return preg_replace('/https?:\/\/[\w\-\.!~#?&=+\*\'"(),\/]+/','<a href="$0">$0</a>',$s);
 }
 
+if (isset( $_GET["test"] )){	
+	print('id: ' . gettype($twitter_data[0]['id']). '<br>'. PHP_EOL);
+	print('id_str: ' . gettype($twitter_data[0]['id_str']). PHP_EOL);
+	
+	if ($_GET["test"] == 'json')
+		$test = $json;
+	else
+		$test = $twitter_data;
+	
+	print("<pre>");
+	print_r($test);
+	print("</pre>". PHP_EOL);
+}
+
 print('<?xml version="1.0" encoding="utf-8"?>'. PHP_EOL);
 print('<?xml-stylesheet type="text/xsl" href="atom-to-html.xsl"?>'. PHP_EOL);
 print('<feed xmlns="http://www.w3.org/2005/Atom">'. PHP_EOL);
@@ -105,8 +120,8 @@ print('<link href="//abs.twimg.com/favicons/favicon.ico" rel="shortcut icon" typ
 $arrLen = count($twitter_data);
 for ($i=0; $i<$arrLen; $i++) {
 	print(PHP_EOL. '	<entry>'. PHP_EOL);
-		print('		<id>http://twitter.com/'.$twitter_data[$i]['user']['screen_name'].'/statuses/'. strval($twitter_data[$i]['id']) .'</id>'. PHP_EOL);
-		print('		<link href="http://twitter.com/'.$twitter_data[$i]['user']['screen_name'].'/statuses/'. strval($twitter_data[$i]['id']) .'" rel="alternate" type="text/html"/>'. PHP_EOL);
+		print('		<id>http://twitter.com/'.$twitter_data[$i]['user']['screen_name'].'/statuses/'. strval($twitter_data[$i]['id_str']) .'</id>'. PHP_EOL);
+		print('		<link href="http://twitter.com/'.$twitter_data[$i]['user']['screen_name'].'/statuses/'. strval($twitter_data[$i]['id_str']) .'" rel="alternate" type="text/html"/>'. PHP_EOL);
 		print('		<title>'.$twitter_data[$i]['user']['screen_name'].': '.$twitter_data[$i]['text'].'</title>'. PHP_EOL);
 		print('		<summary type="html"><![CDATA['.$twitter_data[$i]['user']['screen_name'].': '.$twitter_data[$i]['text'].']]></summary>'. PHP_EOL);
 		
@@ -129,8 +144,4 @@ for ($i=0; $i<$arrLen; $i++) {
 
 print('</feed>'. PHP_EOL);
 print('<!-- vim:ft=xml -->');
-
-//print("<pre>");
-//print_r($twitter_data);
-//print("</pre>");
 ?>
