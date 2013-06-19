@@ -1,5 +1,5 @@
 <?php
-//v.7
+//v.7.1
 
 $token = 'XXXX';
 $token_secret = 'XXXX';
