@@ -1,4 +1,3 @@
-
 If you are using the v1 Twitter API to pull in user feeds, you'll notice that it has stopped working. This is because Twitter has turned off the v1 API, which breaks RSS/ATOM feeds. Version 1.1 of the API doesn't support RSS at all.
 
 api.twitter.com/1/statuses/user_timeline.rss?screen_name=XXXXXX <--- this no longer works
@@ -27,14 +26,14 @@ http://my_host/TWIT/?screen_name=Jalopnik&count=20
 Valid options
 -------------
 User Status:
-screen_name (required)
-count (optional)
-test (optional)
-test=json (optional)
+- screen_name (required)
+- count (optional)
+- test (optional)
+- test=json (optional)
 
 Lists:
-list (required)
-owner (required)
-count (optional)
-test (optional)
-test=json (optional)
+- list (required)
+- owner (required)
+- count (optional)
+- test (optional)
+- test=json (optional)
