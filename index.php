@@ -1,5 +1,5 @@
 <?php
-// v.1
+// v.2
 
 $token = 'XXXXXXX';
 $token_secret = 'XXXXXXX';
@@ -98,29 +98,32 @@ print('<?xml version="1.0" encoding="utf-8"?>'. PHP_EOL);
 print('<?xml-stylesheet type="text/xsl" href="atom-to-html.xsl"?>'. PHP_EOL);
 print('<feed xmlns="http://www.w3.org/2005/Atom">'. PHP_EOL);
 
+print('<title>@'.$twitter_data[0]['user']['screen_name'].'</title>'. PHP_EOL);
+print('<link href="//abs.twimg.com/favicons/favicon.ico" rel="shortcut icon" type="image/x-icon" />'. PHP_EOL);
+
 $arrLen = count($twitter_data);
 for ($i=0; $i<$arrLen; $i++) {
-	print(PHP_EOL. '<entry>'. PHP_EOL);
-		print('<id>http://twitter.com/'.$twitter_data[$i]['user']['screen_name'].'/statuses/'. $twitter_data[$i]['id'] .'</id>'. PHP_EOL);
-		print('<link href="http://twitter.com/'.$twitter_data[$i]['user']['screen_name'].'/statuses/'. $twitter_data[$i]['id'] .'" rel="alternate" type="text/html"/>'. PHP_EOL);
-		print('<title>'.$twitter_data[$i]['user']['screen_name'].': '.$twitter_data[$i]['text'].'</title>'. PHP_EOL);
-		print('<summary type="html"><![CDATA['.$twitter_data[$i]['user']['screen_name'].': '.$twitter_data[$i]['text'].']]></summary>'. PHP_EOL);
+	print(PHP_EOL. '	<entry>'. PHP_EOL);
+		print('		<id>http://twitter.com/'.$twitter_data[$i]['user']['screen_name'].'/statuses/'. strval($twitter_data[$i]['id']) .'</id>'. PHP_EOL);
+		print('		<link href="http://twitter.com/'.$twitter_data[$i]['user']['screen_name'].'/statuses/'. strval($twitter_data[$i]['id']) .'" rel="alternate" type="text/html"/>'. PHP_EOL);
+		print('		<title>'.$twitter_data[$i]['user']['screen_name'].': '.$twitter_data[$i]['text'].'</title>'. PHP_EOL);
+		print('		<summary type="html"><![CDATA['.$twitter_data[$i]['user']['screen_name'].': '.$twitter_data[$i]['text'].']]></summary>'. PHP_EOL);
 		
-		$feedContent = '<content type="html"><![CDATA[<html><body><p></p><p>'.$twitter_data[$i]['text'].'</p></body></html>]]></content>';
+		$feedContent = '		<content type="html"><![CDATA[<html><body><p></p><p>'.$twitter_data[$i]['text'].'</p></body></html>]]></content>';
 		$text = processString($feedContent);
 		
 		print($text . PHP_EOL);
-		print('<updated>'.$twitter_data[$i]['created_at'].'</updated>'. PHP_EOL);
-		print('<author><name></name></author>'. PHP_EOL);
+		print('		<updated>'.$twitter_data[$i]['created_at'].'</updated>'. PHP_EOL);
+		print('		<author><name></name></author>'. PHP_EOL);
 		
 		$hashLen = count($twitter_data[$i]['entities']['hashtags']);
 		if ($hashLen > 0){
 			for ($j=0; $j<$hashLen; $j++){
-				print('<category term="'.$twitter_data[$i]['entities']['hashtags'][$j]['text'].'"/>'. PHP_EOL);
+				print('		<category term="'.$twitter_data[$i]['entities']['hashtags'][$j]['text'].'"/>'. PHP_EOL);
 			}
 		}
 		
-	print('</entry>'. PHP_EOL);
+	print('	</entry>'. PHP_EOL);
 }
 
 print('</feed>'. PHP_EOL);
