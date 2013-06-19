@@ -30,6 +30,7 @@ your_URL_here/path_to_twitter_parser?list=XXXXXX&owner=YYYYYY
 
 For example, I named my file index.php, and put it in a TWIT folder, so I access it
 http://my_host/TWIT/?screen_name=Jalopnik&count=20
+http://my_host/TWIT/?list=Security&owner=jdelamater99
 
 Valid options
 -------------
