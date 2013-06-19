@@ -1,10 +1,7 @@
 <?php
-//v.6
+//v.7
 
 include "config.php";
-
-if (!isset( $_GET["screen_name"] ))
-	$_GET["screen_name"] = "XXXXXXXX";
 
 if (!isset( $_GET["owner"] ))
 	$_GET["owner"] = $_GET["screen_name"];
