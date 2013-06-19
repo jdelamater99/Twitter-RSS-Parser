@@ -1,5 +1,5 @@
 <?php
-// v.2
+// v.3
 
 $token = 'XXXXXXX';
 $token_secret = 'XXXXXXX';
@@ -88,7 +88,8 @@ curl_setopt_array($feed, $options);
 $json = curl_exec($feed);
 curl_close($feed);
 
-$twitter_data = json_decode($json, true);
+//$twitter_data = json_decode($json, true);
+$twitter_data = json_decode(preg_replace ('/:\s?(\d{14,})/', ': "${1}"', $json), true);
 
 function processString($s) {
     return preg_replace('/https?:\/\/[\w\-\.!~#?&=+\*\'"(),\/]+/','<a href="$0">$0</a>',$s);
