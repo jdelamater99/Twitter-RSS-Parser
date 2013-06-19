@@ -1,4 +1,3 @@
-
 If you are using the v1 Twitter API to pull in user feeds, you'll notice that it has stopped working. This is because Twitter has turned off the v1 API, which breaks RSS/ATOM feeds. Version 1.1 of the API doesn't support RSS at all.
 
 api.twitter.com/1/statuses/user_timeline.rss?screen_name=XXXXXX <--- this no longer works
@@ -16,8 +15,8 @@ You'll now be at a page with OAuth settings. At the bottom of the page, there is
 
 The things you'll need from this page are Consumer key, Consumer secret, Access token, and Access token secret.
 
+
 PHP Setup
-Valid options
 -------------
 Rename config.php-dist to config.php. 
 
