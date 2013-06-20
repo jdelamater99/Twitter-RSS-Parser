@@ -1,5 +1,5 @@
 <?php
-//v.7.1
+//v.8
 
 $host = 'api.twitter.com';
 $method = 'GET';
@@ -9,7 +9,9 @@ $query = array( // query parameters
     'owner_screen_name' => $owner,
     'slug' => $list,
     'count' => $cnt,
-    'include_rts' => 'false'
+    'include_rts' => $include_rts,
+    'include_entities' => $include_entities,
+    'trim_user' => $trim_user
 );
 
 include "functions.php";
