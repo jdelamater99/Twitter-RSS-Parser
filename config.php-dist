@@ -1,38 +1,33 @@
 <?php
-//v.8
+//v.9
 
 $token = 'XXXX';
 $token_secret = 'XXXX';
 $consumer_key = 'XXXX';
 $consumer_secret = 'XXXX';
 
-/////////////////////////////////////////////////////////////////
-// Common Parameters
-
-/* Specifies the number of tweets to try and retrieve, up to a maximum of 200 per distinct request. The value of count is best thought of as a limit to the number of tweets to return because suspended or deleted content is removed after the count has been applied. We include retweets in the count, even if include_rts is not supplied. It is recommended you always send include_rts=1 when using this API method. */
-if (!isset( $_GET["count"] ))
-	$_GET["count"] = "5";
-	
-/* When set to false, the timeline will strip any native retweets (though they will still count toward both the maximal length of the timeline and the slice selected by the count parameter). Note: If you're using the trim_user parameter in conjunction with include_rts, the retweets will still contain a full user object. */
-$include_rts = false;
-
-/* When set to either true, t or 1, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object. */
-$trim_user = false;
+/* The screen name of the user for whom to return results for. Default screen_name if one isn't specified in the URL */
+$twit_name = "XXXX";
 
 
-	
+
 /////////////////////////////////////////////////////////////////
 // User Status Parameters	
 
-/* The screen name of the user for whom to return results for. Default screen_name if one isn't specified in the URL */
-if (!isset( $_GET["screen_name"] ))
-	$_GET["screen_name"] = "XXXX";
+/* Specifies the number of tweets to try and retrieve, up to a maximum of 200 per distinct request. The value of count is best thought of as a limit to the number of tweets to return because suspended or deleted content is removed after the count has been applied. We include retweets in the count, even if include_rts is not supplied. It is recommended you always send include_rts=1 when using this API method. */
+$user_count = '5';
+
+/* When set to false, the timeline will strip any native retweets (though they will still count toward both the maximal length of the timeline and the slice selected by the count parameter). Note: If you're using the trim_user parameter in conjunction with include_rts, the retweets will still contain a full user object. */
+$user_include_rts = false;
+
+/* When set to either true, t or 1, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object. */
+$user_trim_user = false;
 	
 /* This parameter will prevent replies from appearing in the returned timeline. Using exclude_replies with the count parameter will mean you will receive up-to count tweets — this is because the count parameter retrieves that many tweets before filtering out retweets and replies. */
-$exclude_replies = true;
+$user_exclude_replies = true;
 
 /* This parameter enhances the contributors element of the status response to include the screen_name of the contributor. By default only the user_id of the contributor is included. */
-$contributor_details = false;
+$user_contributor_details = false;
 
 
 
@@ -41,27 +36,91 @@ $contributor_details = false;
 /////////////////////////////////////////////////////////////////
 // List Parameters	
 
-if (!isset( $_GET["list"] ))
-	$_GET["list"] = NULL;
+/* Specifies the number of tweets to try and retrieve, up to a maximum of 200 per distinct request. The value of count is best thought of as a limit to the number of tweets to return because suspended or deleted content is removed after the count has been applied. We include retweets in the count, even if include_rts is not supplied. It is recommended you always send include_rts=1 when using this API method. */
+$list_count = '15';
 
-/* The screen name of the user for whom to return results for. Default owner is the same as the default screen_name if one isn't specified in the URL */
-if (!isset( $_GET["owner"] ))
-	$_GET["owner"] = $_GET["screen_name"];
+/* When set to false, the timeline will strip any native retweets (though they will still count toward both the maximal length of the timeline and the slice selected by the count parameter). Note: If you're using the trim_user parameter in conjunction with include_rts, the retweets will still contain a full user object. */
+$list_include_rts = false;
 
-/* You can identify a list by its slug instead of its numerical id. If you decide to do so, note that you'll also have to specify the list owner using the owner_id or owner_screen_name parameters. Slug has been specified as URL parameter "list" */
-$list = $_GET["list"];
-
-/* The screen name of the user who owns the list being requested by a slug. Owner_screen_name has been specified as URL parameter "owner" */
-$owner = $_GET["owner"];
+/* When set to either true, t or 1, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object. */
+$list_trim_user = false;
 
 /* When set to either true, t or 1, each tweet will include a node called "entities". This node offers a variety of metadata about the tweet in a discreet structure, including: user_mentions, urls, and hashtags. While entities are opt-in on timelines at present, they will be made a default component of output in the future. See Tweet Entities for more details. */
-$include_entities = true;
+$list_include_entities = true;
 
 
 
+
+
+/////////////////////////////////////////////////////////////////
+// Home Timeline Parameters
+
+/* Specifies the number of tweets to try and retrieve, up to a maximum of 200 per distinct request. The value of count is best thought of as a limit to the number of tweets to return because suspended or deleted content is removed after the count has been applied. We include retweets in the count, even if include_rts is not supplied. It is recommended you always send include_rts=1 when using this API method. */
+$home_count = '100';
+
+/* When set to false, the timeline will strip any native retweets (though they will still count toward both the maximal length of the timeline and the slice selected by the count parameter). Note: If you're using the trim_user parameter in conjunction with include_rts, the retweets will still contain a full user object. */
+$home_include_rts = true;
+
+/* When set to either true, t or 1, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object. */
+$home_trim_user = false;
+
+/* When set to either true, t or 1, each tweet will include a node called "entities". This node offers a variety of metadata about the tweet in a discreet structure, including: user_mentions, urls, and hashtags. While entities are opt-in on timelines at present, they will be made a default component of output in the future. See Tweet Entities for more details. */
+$home_include_entities = true;
+
+/* This parameter will prevent replies from appearing in the returned timeline. Using exclude_replies with the count parameter will mean you will receive up-to count tweets — this is because the count parameter retrieves that many tweets before filtering out retweets and replies. */
+$home_exclude_replies = false;
+
+/* This parameter enhances the contributors element of the status response to include the screen_name of the contributor. By default only the user_id of the contributor is included. */
+$home_contributor_details = false;
+
+
+
+
+/////////////////////////////////////////////////////////////////
+// establish defaults for required parameters	
+
+//////////
+// User
+if (!isset( $_GET["screen_name"] )) {
+	$screen_name = $twit_name;
+} else {
+	$screen_name = $_GET["screen_name"];
+	$count = $user_count;
+}	
+	
+//////////
+// List	
+if (!isset( $_GET["list"] )) {
+	$list = NULL;
+} else {
+	$list = $_GET["list"];
+	$count = $list_count;
+}
+
+if (!isset( $_GET["owner"] ))
+	$_GET["owner"] = $twit_name;
+$owner = $_GET["owner"];
+
+
+
+//////////
+// Home
+if (!isset( $_GET["home"] )) {
+	$home = false;
+} else {
+	$home = true;
+	$count = $home_count;
+}
+
+
+if (isset( $_GET["count"] )) 
+	$count = intval( $_GET["count"] );
+
+/////////////////////////////////////////////////////////////////
 // sanitize variables remote user variables	
-$cnt = htmlspecialchars($_GET["count"]);
-$sn = htmlspecialchars($_GET["screen_name"]);
+
+$cnt = htmlspecialchars($count);
+$sn = htmlspecialchars($screen_name);
 $list = htmlspecialchars($list);
 $owner = htmlspecialchars($owner);
 

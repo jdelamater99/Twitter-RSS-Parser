@@ -3,15 +3,14 @@
 
 $host = 'api.twitter.com';
 $method = 'GET';
-$path = '/1.1/lists/statuses.json'; // api call path
+$path = '/1.1/statuses/home_timeline.json'; // api call path
 
 $query = array( // query parameters
-    'owner_screen_name' => $owner,
-    'slug' => $list,
     'count' => $cnt,
-    'include_rts' => $list_include_rts,
-    'include_entities' => $list_include_entities,
-    'trim_user' => $list_trim_user
+    'trim_user' => $home_trim_user,
+	'exclude_replies' => $home_exclude_replies,
+	'contributor_details' => $home_contributor_details,
+	'include_rts' => $home_include_rts,
 );
 
 include "functions.php";
@@ -20,7 +19,7 @@ print('<?xml version="1.0" encoding="utf-8"?>'. PHP_EOL);
 print('<?xml-stylesheet type="text/xsl" href="atom-to-html.xsl"?>'. PHP_EOL);
 
 print('<feed xmlns="http://www.w3.org/2005/Atom">'. PHP_EOL);
-print('<title>'.$list. ' ('.$owner.')</title>'. PHP_EOL);
+print('<title>Home Timeline of @'. $sn . '</title>'. PHP_EOL);
 
 $arrLen = count($twitter_data);
 for ($i=0; $i<$arrLen; $i++) {
@@ -30,7 +29,7 @@ for ($i=0; $i<$arrLen; $i++) {
 		print('		<title>'.$twitter_data[$i]['user']['screen_name'].': '.htmlspecialchars($twitter_data[$i]['text']).'</title>'. PHP_EOL);
 		print('		<summary type="html"><![CDATA['.$twitter_data[$i]['user']['screen_name'].': '.$twitter_data[$i]['text'].']]></summary>'. PHP_EOL);
 		
-		$feedContent = '		<content type="html"><![CDATA[<p>'.$twitter_data[$i]['text'].'</p>]]></content>';
+		$feedContent = '		<content type="html"><![CDATA[<html><body><p></p><p>'.$twitter_data[$i]['text'].'</p></body></html>]]></content>';
 		$text = processString($feedContent);
 		
 		print($text . PHP_EOL);
@@ -43,10 +42,10 @@ for ($i=0; $i<$arrLen; $i++) {
 				print('		<category term="'.$twitter_data[$i]['entities']['hashtags'][$j]['text'].'"/>'. PHP_EOL);
 			}
 		}
+		
 	print('	</entry>'. PHP_EOL);
 }
 
 print('</feed>'. PHP_EOL);
 print('<!-- vim:ft=xml -->');
-
 ?>

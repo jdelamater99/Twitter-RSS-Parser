@@ -1,5 +1,5 @@
 <?php
-//v.8
+//v.9
 
 $host = 'api.twitter.com';
 $method = 'GET';
@@ -8,10 +8,10 @@ $path = '/1.1/statuses/user_timeline.json'; // api call path
 $query = array( // query parameters
     'screen_name' => $sn,
     'count' => $cnt,
-    'trim_user' => $trim_user,
-	'exclude_replies' => $exclude_replies,
-	'contributor_details' => $contributor_details,
-	'include_rts' => $include_rts,
+    'trim_user' => $user_trim_user,
+	'exclude_replies' => $user_exclude_replies,
+	'contributor_details' => $user_contributor_details,
+	'include_rts' => $user_include_rts,
 );
 
 include "functions.php";
