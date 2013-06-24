@@ -32,11 +32,13 @@ Now, in TT-RSS, edit the now broken twitter feeds, and replace the feed URL with
 - your_URL_here/path_to_twitter_parser?screen_name=XXXXXX&count=YYYYYY
 - your_URL_here/path_to_twitter_parser?list=XXXXXX&owner=YYYYYY
 - your_URL_here/path_to_twitter_parser?home
+- your_URL_here/path_to_twitter_parser?q=foobar
 
 For example, I named my file index.php, and put it in a TWIT folder, so I access it
 - http://my_host/TWIT/?screen_name=Jalopnik&count=20
 - http://my_host/TWIT/?list=Security&owner=jdelamater99
 - http://my_host/TWIT/?home
+- http://my_host/TWIT/?q=foobar
 
 Valid options
 -------------
@@ -56,3 +58,6 @@ Lists:
 Home Timeline:
 - home (required)
 - count (optional)
+
+Search:
+- q (required)
