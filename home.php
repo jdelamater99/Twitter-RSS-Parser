@@ -1,5 +1,5 @@
 <?php
-//v.9
+//v1.0
 
 $host = 'api.twitter.com';
 $method = 'GET';
