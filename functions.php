@@ -1,5 +1,5 @@
 <?php
-//v.9
+//v1.0
 
 $oauth = array(
     'oauth_consumer_key' => $consumer_key,
