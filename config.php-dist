@@ -1,5 +1,5 @@
 <?php
-//v.9
+//v1.0
 
 $token = 'XXXX';
 $token_secret = 'XXXX';
@@ -76,6 +76,21 @@ $home_contributor_details = false;
 
 
 
+
+/////////////////////////////////////////////////////////////////
+// Search Parameters
+
+/* Optional. Specifies what type of search results you would prefer to receive. The current default is "mixed." */
+/* mixed|recent|popular */
+$search_result_type = 'mixed';
+
+/* When set to either true, t or 1, each tweet will include a node called "entities". This node offers a variety of metadata about the tweet in a discreet structure, including: user_mentions, urls, and hashtags. While entities are opt-in on timelines at present, they will be made a default component of output in the future. See Tweet Entities for more details. */
+$search_include_entities = true;
+
+
+
+
+
 /////////////////////////////////////////////////////////////////
 // establish defaults for required parameters	
 
@@ -113,8 +128,20 @@ if (!isset( $_GET["home"] )) {
 }
 
 
+
+//////////
+// Search
+if (!isset( $_GET["q"] )) {
+	$search = false;
+} else {
+	$search = true;
+	$q = $_GET["q"];
+}
+
+
 if (isset( $_GET["count"] )) 
 	$count = intval( $_GET["count"] );
+	
 
 /////////////////////////////////////////////////////////////////
 // sanitize variables remote user variables	
@@ -123,5 +150,6 @@ $cnt = htmlspecialchars($count);
 $sn = htmlspecialchars($screen_name);
 $list = htmlspecialchars($list);
 $owner = htmlspecialchars($owner);
+$q = htmlspecialchars($q);
 
 ?>
