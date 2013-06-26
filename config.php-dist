@@ -133,6 +133,7 @@ if (!isset( $_GET["home"] )) {
 // Search
 if (!isset( $_GET["q"] )) {
 	$search = false;
+	$q = NULL;
 } else {
 	$search = true;
 	$q = $_GET["q"];
