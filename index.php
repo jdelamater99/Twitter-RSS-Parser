@@ -3,6 +3,8 @@
 
 include "config.php";
 
+header('Content-type: application/atom+xml; charset=utf-8');
+
 if ( $list != NULL ){	
 	include "list.php";
 } else if ( $home ) {
