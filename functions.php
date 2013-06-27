@@ -1,5 +1,5 @@
 <?php
-//v.9
+//v1.1
 
 $oauth = array(
     'oauth_consumer_key' => $consumer_key,
@@ -11,7 +11,7 @@ $oauth = array(
 );
 
 $oauth = array_map("rawurlencode", $oauth); // must be encoded before sorting
-$query = array_map("rawurlencode", $query);
+//$query = array_map("rawurlencode", $query);
 
 $arr = array_merge($oauth, $query); // combine the values THEN sort
 
@@ -38,6 +38,7 @@ $signature = rawurlencode(base64_encode(hash_hmac('sha1', $base_string, $key, tr
 // (without the oauth params)
 $url .= "?".http_build_query($query);
 $url=str_replace("&amp;","&",$url); //Patch by @Frewuill
+$url = str_replace("%25", "%", $url);
 
 $oauth['oauth_signature'] = $signature; // don't want to abandon all that work!
 ksort($oauth); // probably not necessary, but twitter's demo does it
@@ -70,6 +71,12 @@ function processString($s) {
     return preg_replace('/https?:\/\/[\w\-\.!~#?&=+\*\'"(),\/]+/','<a href="$0">$0</a>',$s);
 }
 
+function printArray($s){
+	print("<pre>");
+	print_r($s);
+	print("</pre>". PHP_EOL);
+}
+
 if (isset( $_GET["test"] )){	
 	print('id: ' . gettype($twitter_data[0]['id']). '<br>'. PHP_EOL);
 	print('id_str: ' . gettype($twitter_data[0]['id_str']). PHP_EOL);
@@ -79,8 +86,9 @@ if (isset( $_GET["test"] )){
 	else
 		$test = $twitter_data;
 	
-	print("<pre>");
-	print_r($test);
-	print("</pre>". PHP_EOL);
+	printArray($test);
+	
+	printArray("url: + " . $url);
 }
+
 ?>
