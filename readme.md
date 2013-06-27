@@ -29,7 +29,6 @@ Next, open config.php in the text editor of your choice, and place your newly cr
 
 Now, in TT-RSS, edit the now broken twitter feeds, and replace the feed URL with the location you installed the twitter parser to, and pass it screen_name and count variables.
 
-<<<<<<< HEAD
 - http://domain.com/Twitter-RSS-Parser?home
 - http://domain.com/Twitter-RSS-Parser?screen_name=stephenfry&count=100
 - http://domain.com/Twitter-RSS-Parser?list=kittens&owner=stephenfry
@@ -51,7 +50,6 @@ For example, I named my file index.php, and put it in a TWIT folder, so I access
 - http://my_host/TWIT/?list=Security&owner=jdelamater99
 - http://my_host/TWIT/?home
 - http://my_host/TWIT/?q=foobar
->>>>>>> 5bc7a2493926b74440733016713e66b7e257c9fa
 
 Valid options
 -------------
@@ -72,12 +70,5 @@ Lists:
 - test (optional)
 - test=json (optional)
 
-<<<<<<< HEAD
-=======
-Home Timeline:
-- home (required)
-- count (optional)
-
->>>>>>> 5bc7a2493926b74440733016713e66b7e257c9fa
 Search:
 - q (required)
