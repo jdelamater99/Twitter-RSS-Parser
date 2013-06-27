@@ -3,7 +3,9 @@
 
 include "config.php";
 
-header('Content-type: application/atom+xml; charset=utf-8');
+if (!isset($_GET['test'])){
+	header('Content-type: application/atom+xml; charset=utf-8');
+}
 
 if ( $list != NULL ){	
 	include "list.php";
