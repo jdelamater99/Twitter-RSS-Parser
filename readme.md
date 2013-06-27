@@ -40,6 +40,10 @@ For example, I named my file index.php, and put it in a TWIT folder, so I access
 - http://domain.com/TWIT/?list=kittens&owner=stephenfry
 - http://domain.com/TWIT/?q=foobar
 
+If you want to search a hashtag and not just a keyword, then you need to change the # to %23 
+- http://domain.com/TWIT/?q=#foobar <---- this does not work
+- http://domain.com/TWIT/?q=%23foobar <---- this works
+
 
 Valid options
 -------------
