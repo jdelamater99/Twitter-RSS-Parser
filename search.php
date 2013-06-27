@@ -31,7 +31,7 @@ print('<title>Search: '. urldecode($q) . '</title>'. PHP_EOL);
 print('<updated>'.date('c', strtotime($twitter_data['statuses'][0]['created_at'])).'</updated>'. PHP_EOL);
 
 print('<link href="https://twitter.com/search?q='.$q.'" rel="alternate" type="application/atom+xml"/>'. PHP_EOL);
-print('<link href="'.$protocol.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'].'" rel="self" type="application/atom+xml" />'. PHP_EOL);
+print('<link href="'.$protocol.$_SERVER['SERVER_NAME'].str_replace("&", "&amp;", $_SERVER['REQUEST_URI']).'" rel="self" type="application/atom+xml" />'. PHP_EOL);
 
 include "feed.php";
 ?>
