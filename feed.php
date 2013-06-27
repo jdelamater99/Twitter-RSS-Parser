@@ -8,8 +8,8 @@ if ($search){
 $arrLen = count($td);
 for ($i=0; $i<$arrLen; $i++) {
 	print(PHP_EOL. '	<entry>'. PHP_EOL);
-		print('		<id>https://twitter.com/'.$td[$i]['user']['screen_name'].'/statuses/'. $td[$i]['id_str'] .'</id>'. PHP_EOL);
-		print('		<link href="https://twitter.com/'.$td[$i]['user']['screen_name'].'/statuses/'. $twitter_data[$i]['id_str'] .'" rel="alternate" type="text/html"/>'. PHP_EOL);
+		print('		<id>tag:twitter.com,' . date("Y-m-d", strtotime($td[$i]['created_at'])) . ':/' . $td[$i]['user']['screen_name'] . '/statuses/' . $td[$i]['id_str'] . '</id>'. PHP_EOL);
+		print('		<link href="https://twitter.com/'.$td[$i]['user']['screen_name'].'/statuses/'. $td[$i]['id_str'] .'" rel="alternate" type="text/html"/>'. PHP_EOL);
 		print('		<title>'.$td[$i]['user']['screen_name'].': '.htmlspecialchars($td[$i]['text']).'</title>'. PHP_EOL);
 		print('		<summary type="html"><![CDATA['.$td[$i]['user']['screen_name'].': '.$td[$i]['text'].']]></summary>'. PHP_EOL);
 		

@@ -26,12 +26,11 @@ if (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off'
 
 print('<?xml version="1.0" encoding="utf-8"?>'. PHP_EOL);
 print('<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en" xml:base="'.$_SERVER['SERVER_NAME'].'">'. PHP_EOL);
-
-print('<id>https://twitter.com/'.$twitter_data[0]['user']['screen_name'].'/statuses/'. $twitter_data[0]['id_str'] .'</id>'. PHP_EOL);
+print('<id>tag:twitter.com,2006:/' . $owner . '/' . $list . '</id>'. PHP_EOL);
 print('<title>'.$list. ' ('.$owner.')</title>'. PHP_EOL);
 print('<updated>'.date('c', strtotime($twitter_data[0]['created_at'])).'</updated>'. PHP_EOL);
 
-print('<link href="https://twitter.com/'.$twitter_data[0]['user']['screen_name'].'/'. $list .'" rel="alternate" type="application/atom+xml"/>'. PHP_EOL);
+print('<link href="https://twitter.com/'.$owner.'/'. $list .'"/>'. PHP_EOL);
 print('<link href="'.$protocol.$_SERVER['SERVER_NAME'].str_replace("&", "&amp;", $_SERVER['REQUEST_URI']).'" rel="self" type="application/atom+xml" />'. PHP_EOL);
 
 include "feed.php";
