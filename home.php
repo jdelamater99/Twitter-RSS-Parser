@@ -1,5 +1,9 @@
 <?php
+<<<<<<< HEAD
 //v1.1
+=======
+//v1.0
+>>>>>>> 5bc7a2493926b74440733016713e66b7e257c9fa
 
 $host = 'api.twitter.com';
 $method = 'GET';
@@ -35,4 +39,10 @@ print('<link href="'.$protocol.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'].'
 
 include "feed.php";
 
+<<<<<<< HEAD
 ?>
+=======
+print('</feed>'. PHP_EOL);
+print('<!-- vim:ft=xml -->');
+?>
+>>>>>>> 5bc7a2493926b74440733016713e66b7e257c9fa

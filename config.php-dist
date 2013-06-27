@@ -1,5 +1,9 @@
 <?php
+<<<<<<< HEAD
 //v1.1
+=======
+//v1.0.1
+>>>>>>> 5bc7a2493926b74440733016713e66b7e257c9fa
 
 $token = 'XXXX';
 $token_secret = 'XXXX';
@@ -152,6 +156,10 @@ $cnt = htmlspecialchars($count);
 $sn = htmlspecialchars($screen_name);
 $list = htmlspecialchars($list);
 $owner = htmlspecialchars($owner);
+<<<<<<< HEAD
 //$q = htmlspecialchars($q);
+=======
+$q = htmlspecialchars($q);
+>>>>>>> 5bc7a2493926b74440733016713e66b7e257c9fa
 
 ?>

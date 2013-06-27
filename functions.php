@@ -1,5 +1,9 @@
 <?php
+<<<<<<< HEAD
 //v1.1
+=======
+//v1.0
+>>>>>>> 5bc7a2493926b74440733016713e66b7e257c9fa
 
 $oauth = array(
     'oauth_consumer_key' => $consumer_key,
@@ -90,5 +94,9 @@ if (isset( $_GET["test"] )){
 	
 	printArray("url: + " . $url);
 }
+<<<<<<< HEAD
 
 ?>
+=======
+?>
+>>>>>>> 5bc7a2493926b74440733016713e66b7e257c9fa

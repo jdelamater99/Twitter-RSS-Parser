@@ -1,5 +1,9 @@
 <?php
+<<<<<<< HEAD
 //v1.1
+=======
+//v1.0
+>>>>>>> 5bc7a2493926b74440733016713e66b7e257c9fa
 
 $host = 'api.twitter.com';
 $method = 'GET';
@@ -34,5 +38,9 @@ print('<updated>'.date('c', strtotime($twitter_data[0]['created_at'])).'</update
 print('<link href="https://twitter.com/'.$twitter_data[0]['user']['screen_name'].'/'. $list .'" rel="alternate" type="application/atom+xml"/>'. PHP_EOL);
 print('<link href="'.$protocol.$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'].'" rel="self" type="application/atom+xml" />'. PHP_EOL);
 
+<<<<<<< HEAD
 include "feed.php";
 ?>
+=======
+?>
+>>>>>>> 5bc7a2493926b74440733016713e66b7e257c9fa
