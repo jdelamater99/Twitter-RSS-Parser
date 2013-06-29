@@ -1,6 +1,4 @@
 <?php
-//v1.1
-
 $oauth = array(
     'oauth_consumer_key' => $consumer_key,
     'oauth_token' => $token,

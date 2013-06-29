@@ -1,6 +1,4 @@
 <?php
-//v1.1
-
 $host = 'api.twitter.com';
 $method = 'GET';
 $path = '/1.1/lists/statuses.json'; // api call path

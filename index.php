@@ -1,6 +1,4 @@
 <?php
-//v1.1
-
 /**
  * Make sure config.php exists before loading it
  */

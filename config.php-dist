@@ -1,6 +1,4 @@
 <?php
-//v1.1
-
 // * Fill in these values from your Twitter Developer Account.
 // * Read the readme.md file for instructions on setting that up.
 $token = 'XXXX';

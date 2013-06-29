@@ -1,6 +1,4 @@
 <?php
-//v1.1
-
 $host = 'api.twitter.com';
 $method = 'GET';
 $path = '/1.1/search/tweets.json'; // api call path

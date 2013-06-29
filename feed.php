@@ -1,5 +1,4 @@
 <?php
-
 if (isset($q)){
 	$td = $twitter_data['statuses'];
 } else {
