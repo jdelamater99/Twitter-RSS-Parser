@@ -10,7 +10,7 @@ $query = array( // query parameters
     'slug' => $list,
     'count' => $cnt,
     'include_rts' => $list_include_rts,
-    'include_entities' => $list_include_entities,
+	'include_entities' => 'true',
     'trim_user' => $list_trim_user
 );
 

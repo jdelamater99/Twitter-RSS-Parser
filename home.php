@@ -10,6 +10,7 @@ $query = array( // query parameters
     'trim_user' => $home_trim_user,
 	'exclude_replies' => $home_exclude_replies,
 	'contributor_details' => $home_contributor_details,
+	'include_entities' => 'true',
 	'include_rts' => $home_include_rts,
 );
 
