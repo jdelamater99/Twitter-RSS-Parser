@@ -1,12 +1,15 @@
 <?php
 //v1.1
 
+// * Fill in these values from your Twitter Developer Account.
+// * Read the readme.md file for instructions on setting that up.
 $token = 'XXXX';
 $token_secret = 'XXXX';
 $consumer_key = 'XXXX';
 $consumer_secret = 'XXXX';
 
-/* The screen name of the user for whom to return results for. Default screen_name if one isn't specified in the URL */
+// * Enter your twitter username below, or any username to use as
+// * a default if one isn't specified in the URL.
 $screen_name = "XXXX";
 
 // * Default max tweets to retrieve.  Can be customized per type of query below, and in
@@ -16,66 +19,77 @@ $screen_name = "XXXX";
 // * default:   10
 $count = 10;
 
-/////////////////////////////////////////////////////////////////
-// User Status Parameters	
+
+
+// * ***************************************************************
+// * User Status Parameters	
+// * ***************************************************************
 
 // * Max tweets to retrieve. Count includes RTs, even if you exclude them below.
 // * max value: 200
 // * default:   $count
 $user_count = $count;
 
-/* When set to false, the timeline will strip any native retweets (though they will still count toward both the maximal length of the timeline and the slice selected by the count parameter). Note: If you're using the trim_user parameter in conjunction with include_rts, the retweets will still contain a full user object. */
+// * Sets whether retweets are included in the timeline.  Retweets count
+// * towards the $count limit even if this is true, they're just hidden.
+// * default: false
 $user_include_rts = false;
-	
-/* This parameter will prevent replies from appearing in the returned timeline. Using exclude_replies with the count parameter will mean you will receive up-to count tweets — this is because the count parameter retrieves that many tweets before filtering out retweets and replies. */
-$user_exclude_replies = true;
+
+// * Sets whether replies are included in the timeline.  Replies count
+// * towards the $count limit even if this is true, they're just hidden.
+// * default: false
+$user_include_replies = false;
 
 
 
-
-
-/////////////////////////////////////////////////////////////////
-// List Parameters	
+// * ***************************************************************
+// * List Parameters	
+// * ***************************************************************
 
 // * Max tweets to retrieve. Count includes RTs, even if you exclude them below.
 // * max value: 200
 // * default:   $count
 $list_count = $count;
 
-/* When set to false, the timeline will strip any native retweets (though they will still count toward both the maximal length of the timeline and the slice selected by the count parameter). Note: If you're using the trim_user parameter in conjunction with include_rts, the retweets will still contain a full user object. */
+// * Sets whether retweets are included in the timeline.  Retweets count
+// * towards the $count limit even if this is true, they're just hidden.
+// * default: true
 $list_include_rts = false;
 
 
 
-
-
-/////////////////////////////////////////////////////////////////
-// Home Timeline Parameters
+// * ***************************************************************
+// * Home Timeline Parameters
+// * ***************************************************************
 
 // * Max tweets to retrieve. Count includes RTs, even if you exclude them below.
 // * max value: 200
 // * default:   $count
 $home_count = $count;
 
-/* When set to false, the timeline will strip any native retweets (though they will still count toward both the maximal length of the timeline and the slice selected by the count parameter). Note: If you're using the trim_user parameter in conjunction with include_rts, the retweets will still contain a full user object. */
+// * Sets whether retweets are included in the timeline.  Retweets count
+// * towards the $count limit even if this is true, they're just hidden.
+// * default: true
 $home_include_rts = true;
 
-/* This parameter will prevent replies from appearing in the returned timeline. Using exclude_replies with the count parameter will mean you will receive up-to count tweets — this is because the count parameter retrieves that many tweets before filtering out retweets and replies. */
-$home_exclude_replies = false;
+// * Sets whether replies are included in the timeline.  Replies count
+// * towards the $count limit even if this is true, they're just hidden.
+// * default: true
+$home_include_replies = true;
 
 
 
-
-
-/////////////////////////////////////////////////////////////////
-// Search Parameters
+// * ***************************************************************
+// * Search Parameters
+// * ***************************************************************
 
 // * Max tweets to retrieve. Count includes RTs, even if you exclude them below.
 // * max value: 200
 // * default:   $count
 $search_count = $count;
 
-/* Optional. Specifies what type of search results you would prefer to receive. The current default is "mixed." */
-/* mixed|recent|popular */
+// * Type of search results to return.
+// * options: mixed|recent|popular
+// * default: mixed
 $search_result_type = 'mixed';
 ?>
