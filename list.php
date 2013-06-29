@@ -1,6 +1,4 @@
 <?php
-//v1.1
-
 $host = 'api.twitter.com';
 $method = 'GET';
 $path = '/1.1/lists/statuses.json'; // api call path
@@ -8,10 +6,10 @@ $path = '/1.1/lists/statuses.json'; // api call path
 $query = array( // query parameters
     'owner_screen_name' => $owner,
     'slug' => $list,
-    'count' => $cnt,
+    'count' => $count,
     'include_rts' => $list_include_rts,
-    'include_entities' => $list_include_entities,
-    'trim_user' => $list_trim_user
+	'include_entities' => 'true',
+    'trim_user' => 'false'
 );
 
 include "functions.php";

@@ -1,6 +1,4 @@
 <?php
-//v1.1
-
 $host = 'api.twitter.com';
 $method = 'GET';
 $path = '/1.1/search/tweets.json'; // api call path
@@ -9,7 +7,8 @@ $q = str_replace("+", "%20", urlencode($q));
 
 $query = array( // query parameters
 	'q' => $q,
-	'include_entities' => $search_include_entities,
+	'count' => $count,
+	'include_entities' => 'true',
 	'result_type' => $search_result_type
 );
 
