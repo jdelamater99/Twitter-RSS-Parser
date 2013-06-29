@@ -15,14 +15,32 @@ if (!isset($_GET['test'])){
 	header('Content-type: application/atom+xml; charset=utf-8');
 }
 
-if ( $list != NULL ){	
-	include "list.php";
-} else if ( $home ) {
-	include "home.php";
-} else if ( $search ) {
-	include "search.php";
-} else {
-	include "user.php";
-}
+if (isset( $_GET["count"] ))
+        $count = intval( $_GET["count"] );
 
+$count = htmlspecialchars($count);
+$screen_name = $twit_name;
+
+if (isset( $_GET["screen_name"])) {
+	$screen_name = htmlspecialchars($_GET["screen_name"]);
+	$sn = $screen_name;
+	$count = $user_count;
+	include "user.php";
+} elseif (isset($_GET["list"])) {
+	$list = htmlspecialchars($_GET["list"]);
+	$count = $list_count;
+	if(isset($_GET["owner"])) {
+		$owner = htmlspecialchars($_GET["owner"]);
+	} else {
+		$owner = $twit_name;
+	}
+	include "list.php";
+} elseif (isset( $_GET["q"] )) {
+	$q = $_GET["q"];
+	include "search.php";
+} else { // Default to home
+	$sn = $screen_name;
+	$count = $home_count;
+	include "home.php";
+}
 ?>

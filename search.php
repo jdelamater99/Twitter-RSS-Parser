@@ -9,6 +9,7 @@ $q = str_replace("+", "%20", urlencode($q));
 
 $query = array( // query parameters
 	'q' => $q,
+	'count' => $count,
 	'include_entities' => 'true',
 	'result_type' => $search_result_type
 );

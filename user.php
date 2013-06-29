@@ -7,7 +7,7 @@ $path = '/1.1/statuses/user_timeline.json'; // api call path
 
 $query = array( // query parameters
     'screen_name' => $sn,
-    'count' => $cnt,
+    'count' => $count,
     'trim_user' => $user_trim_user,
 	'exclude_replies' => $user_exclude_replies,
 	'contributor_details' => $user_contributor_details,
