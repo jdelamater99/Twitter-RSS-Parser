@@ -9,13 +9,20 @@ $consumer_secret = 'XXXX';
 /* The screen name of the user for whom to return results for. Default screen_name if one isn't specified in the URL */
 $twit_name = "XXXX";
 
-$count = 5;
+// * Default max tweets to retrieve.  Can be customized per type of query below, and in
+// * URL by appending "&count=X" to any query.
+// * Note: Count includes RTs, even if you exclude them below.
+// * max value: 200
+// * default:   10
+$count = 10;
 
 /////////////////////////////////////////////////////////////////
 // User Status Parameters	
 
-/* Specifies the number of tweets to try and retrieve, up to a maximum of 200 per distinct request. The value of count is best thought of as a limit to the number of tweets to return because suspended or deleted content is removed after the count has been applied. We include retweets in the count, even if include_rts is not supplied. It is recommended you always send include_rts=1 when using this API method. */
-$user_count = '5';
+// * Max tweets to retrieve. Count includes RTs, even if you exclude them below.
+// * max value: 200
+// * default:   $count
+$user_count = $count;
 
 /* When set to false, the timeline will strip any native retweets (though they will still count toward both the maximal length of the timeline and the slice selected by the count parameter). Note: If you're using the trim_user parameter in conjunction with include_rts, the retweets will still contain a full user object. */
 $user_include_rts = false;
@@ -36,8 +43,10 @@ $user_contributor_details = false;
 /////////////////////////////////////////////////////////////////
 // List Parameters	
 
-/* Specifies the number of tweets to try and retrieve, up to a maximum of 200 per distinct request. The value of count is best thought of as a limit to the number of tweets to return because suspended or deleted content is removed after the count has been applied. We include retweets in the count, even if include_rts is not supplied. It is recommended you always send include_rts=1 when using this API method. */
-$list_count = '15';
+// * Max tweets to retrieve. Count includes RTs, even if you exclude them below.
+// * max value: 200
+// * default:   $count
+$list_count = $count;
 
 /* When set to false, the timeline will strip any native retweets (though they will still count toward both the maximal length of the timeline and the slice selected by the count parameter). Note: If you're using the trim_user parameter in conjunction with include_rts, the retweets will still contain a full user object. */
 $list_include_rts = false;
@@ -52,8 +61,10 @@ $list_trim_user = false;
 /////////////////////////////////////////////////////////////////
 // Home Timeline Parameters
 
-/* Specifies the number of tweets to try and retrieve, up to a maximum of 200 per distinct request. The value of count is best thought of as a limit to the number of tweets to return because suspended or deleted content is removed after the count has been applied. We include retweets in the count, even if include_rts is not supplied. It is recommended you always send include_rts=1 when using this API method. */
-$home_count = '100';
+// * Max tweets to retrieve. Count includes RTs, even if you exclude them below.
+// * max value: 200
+// * default:   $count
+$home_count = $count;
 
 /* When set to false, the timeline will strip any native retweets (though they will still count toward both the maximal length of the timeline and the slice selected by the count parameter). Note: If you're using the trim_user parameter in conjunction with include_rts, the retweets will still contain a full user object. */
 $home_include_rts = true;
@@ -73,6 +84,11 @@ $home_contributor_details = false;
 
 /////////////////////////////////////////////////////////////////
 // Search Parameters
+
+// * Max tweets to retrieve. Count includes RTs, even if you exclude them below.
+// * max value: 200
+// * default:   $count
+$search_count = $count;
 
 /* Optional. Specifies what type of search results you would prefer to receive. The current default is "mixed." */
 /* mixed|recent|popular */
