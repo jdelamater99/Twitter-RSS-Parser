@@ -7,7 +7,7 @@ $consumer_key = 'XXXX';
 $consumer_secret = 'XXXX';
 
 /* The screen name of the user for whom to return results for. Default screen_name if one isn't specified in the URL */
-$twit_name = "XXXX";
+$screen_name = "XXXX";
 
 // * Default max tweets to retrieve.  Can be customized per type of query below, and in
 // * URL by appending "&count=X" to any query.

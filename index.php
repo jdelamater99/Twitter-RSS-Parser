@@ -21,11 +21,8 @@ if (isset($_GET["count"])) {
 	}
 }
 
-$screen_name = $twit_name;
-
 if (isset( $_GET["screen_name"])) {
 	$screen_name = htmlspecialchars($_GET["screen_name"]);
-	$sn = $screen_name;
 	$count = isset($session_count) ? $session_count : $user_count;
 	include "user.php";
 } elseif (isset($_GET["list"])) {
@@ -34,7 +31,7 @@ if (isset( $_GET["screen_name"])) {
 	if(isset($_GET["owner"])) {
 		$owner = htmlspecialchars($_GET["owner"]);
 	} else {
-		$owner = $twit_name;
+		$owner = $screen_name;
 	}
 	include "list.php";
 } elseif (isset( $_GET["q"] )) {
@@ -42,7 +39,6 @@ if (isset( $_GET["screen_name"])) {
 	$count = isset($session_count) ? $session_count : $search_count;
 	include "search.php";
 } else { // Default to home
-	$sn = $screen_name;
 	$count = isset($session_count) ? $session_count : $home_count;
 	include "home.php";
 }
