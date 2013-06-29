@@ -11,7 +11,7 @@ $query = array( // query parameters
     'count' => $count,
     'include_rts' => $list_include_rts,
 	'include_entities' => 'true',
-    'trim_user' => $list_trim_user
+    'trim_user' => 'false'
 );
 
 include "functions.php";

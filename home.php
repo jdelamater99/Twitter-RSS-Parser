@@ -6,8 +6,8 @@ $method = 'GET';
 $path = '/1.1/statuses/home_timeline.json'; // api call path
 
 $query = array( // query parameters
-    'count' => $count,
-    'trim_user' => $home_trim_user,
+	'count' => $count,
+	'trim_user' => 'false',
 	'exclude_replies' => $home_exclude_replies,
 	'include_entities' => 'true',
 	'include_rts' => $home_include_rts,
