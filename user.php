@@ -10,7 +10,6 @@ $query = array( // query parameters
     'count' => $count,
     'trim_user' => $user_trim_user,
 	'exclude_replies' => $user_exclude_replies,
-	'contributor_details' => $user_contributor_details,
 	'include_rts' => $user_include_rts,
 );
 

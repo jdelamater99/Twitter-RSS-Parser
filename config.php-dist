@@ -33,9 +33,6 @@ $user_trim_user = false;
 /* This parameter will prevent replies from appearing in the returned timeline. Using exclude_replies with the count parameter will mean you will receive up-to count tweets — this is because the count parameter retrieves that many tweets before filtering out retweets and replies. */
 $user_exclude_replies = true;
 
-/* This parameter enhances the contributors element of the status response to include the screen_name of the contributor. By default only the user_id of the contributor is included. */
-$user_contributor_details = false;
-
 
 
 
@@ -74,9 +71,6 @@ $home_trim_user = false;
 
 /* This parameter will prevent replies from appearing in the returned timeline. Using exclude_replies with the count parameter will mean you will receive up-to count tweets — this is because the count parameter retrieves that many tweets before filtering out retweets and replies. */
 $home_exclude_replies = false;
-
-/* This parameter enhances the contributors element of the status response to include the screen_name of the contributor. By default only the user_id of the contributor is included. */
-$home_contributor_details = false;
 
 
 
