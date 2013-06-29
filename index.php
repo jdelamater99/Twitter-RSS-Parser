@@ -1,7 +1,15 @@
 <?php
 //v1.1
 
-include "config.php";
+/**
+ * Make sure config.php exists before loading it
+ */
+if(file_exists("config.php")) {
+	include "config.php";
+} else {
+	print('ERROR: Before using this script, copy config.php-dist to config.php and customize it.');
+	exit();
+}
 
 if (!isset($_GET['test'])){
 	header('Content-type: application/atom+xml; charset=utf-8');
