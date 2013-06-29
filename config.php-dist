@@ -6,8 +6,8 @@ $token_secret = 'XXXX';
 $consumer_key = 'XXXX';
 $consumer_secret = 'XXXX';
 
-// * Enter your twitter username below, or any username to use as
-// * a default if one isn't specified in the URL.
+// * Enter your twitter username below.  This is used for the home
+// * view, and a default for lists if one isn't specified in the URL.
 $screen_name = "XXXX";
 
 // * Default max tweets to retrieve.  Can be customized per type of query below, and in
