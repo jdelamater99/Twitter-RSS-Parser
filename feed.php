@@ -12,7 +12,7 @@ for ($i=0; $i<$arrLen; $i++) {
 		print('		<title>'.$td[$i]['user']['screen_name'].': '.htmlspecialchars($td[$i]['text']).'</title>'. PHP_EOL);
 		print('		<summary type="html"><![CDATA['.$td[$i]['user']['screen_name'].': '.$td[$i]['text'].']]></summary>'. PHP_EOL);
 
-		$feedContent = '		<content type="html"><![CDATA[<p>'.nl2br($td[$i]['text']).'</p>]]></content>';
+		$feedContent = '		<content type="html"><![CDATA[<p>'.nl2br($td[$i]['full_text']).'</p>]]></content>';
 		$text = processString($feedContent);
 
 		print($text . PHP_EOL);
