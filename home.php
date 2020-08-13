@@ -9,6 +9,7 @@ $query = array( // query parameters
 	'exclude_replies' => !$home_include_replies,
 	'include_entities' => 'true',
 	'include_rts' => $home_include_rts,
+	'tweet_mode'='extended'
 );
 
 include "functions.php";
