@@ -8,8 +8,9 @@ $query = array( // query parameters
     'slug' => $list,
     'count' => $count,
     'include_rts' => $list_include_rts,
-	'include_entities' => 'true',
-    'trim_user' => 'false'
+    'include_entities' => 'true',
+    'trim_user' => 'false',
+    'tweet_mode' => 'extended'
 );
 
 include "functions.php";
