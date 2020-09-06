@@ -9,7 +9,8 @@ $query = array( // query parameters
 	'q' => $q,
 	'count' => $count,
 	'include_entities' => 'true',
-	'result_type' => $search_result_type
+	'result_type' => $search_result_type,
+	'tweet_mode' => 'extended',
 );
 
 include "functions.php";

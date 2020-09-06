@@ -4,22 +4,23 @@ $method = 'GET';
 $path = '/1.1/lists/statuses.json'; // api call path
 
 $query = array( // query parameters
-    'owner_screen_name' => $owner,
-    'slug' => $list,
-    'count' => $count,
-    'include_rts' => $list_include_rts,
+	'owner_screen_name' => $owner,
+	'slug' => $list,
+	'count' => $count,
+	'include_rts' => $list_include_rts,
 	'include_entities' => 'true',
-    'trim_user' => 'false'
+	'trim_user' => 'false',
+	'tweet_mode' => 'extended',
 );
 
 include "functions.php";
 
 if (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off'
-    || $_SERVER['SERVER_PORT'] == 443) {
+	|| $_SERVER['SERVER_PORT'] == 443) {
 
-    $protocol = 'https://';
+	$protocol = 'https://';
 } else {
-    $protocol = 'http://';
+	$protocol = 'http://';
 }
 
 print('<?xml version="1.0" encoding="utf-8"?>'. PHP_EOL);
