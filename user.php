@@ -4,12 +4,12 @@ $method = 'GET';
 $path = '/1.1/statuses/user_timeline.json'; // api call path
 
 $query = array( // query parameters
-	'screen_name' => $screen_name,
-	'count' => $count,
-	'trim_user' => 'false',
-	'exclude_replies' => !$user_include_replies,
-	'include_rts' => $user_include_rts,
-	'tweet_mode' => 'extended'
+    'screen_name' => $screen_name,
+    'count' => $count,
+    'trim_user' => 'false',
+    'exclude_replies' => !$user_include_replies,
+    'include_rts' => $user_include_rts,
+    'tweet_mode' => 'extended',
 );
 
 include "functions.php";

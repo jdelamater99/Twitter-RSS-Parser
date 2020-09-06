@@ -10,7 +10,7 @@ $query = array( // query parameters
     'include_rts' => $list_include_rts,
     'include_entities' => 'true',
     'trim_user' => 'false',
-    'tweet_mode' => 'extended'
+    'tweet_mode' => 'extended',
 );
 
 include "functions.php";
