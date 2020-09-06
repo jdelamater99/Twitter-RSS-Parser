@@ -9,17 +9,17 @@ $query = array( // query parameters
 	'trim_user' => 'false',
 	'exclude_replies' => !$user_include_replies,
 	'include_rts' => $user_include_rts,
-	'tweet_mode' => 'extended'
+	'tweet_mode' => 'extended',
 );
 
 include "functions.php";
 
 if (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off'
-    || $_SERVER['SERVER_PORT'] == 443) {
+	|| $_SERVER['SERVER_PORT'] == 443) {
 
-    $protocol = 'https://';
+	$protocol = 'https://';
 } else {
-    $protocol = 'http://';
+	$protocol = 'http://';
 }
 
 print('<?xml version="1.0" encoding="utf-8"?>'. PHP_EOL);
