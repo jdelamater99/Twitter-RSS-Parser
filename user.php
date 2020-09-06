@@ -4,22 +4,22 @@ $method = 'GET';
 $path = '/1.1/statuses/user_timeline.json'; // api call path
 
 $query = array( // query parameters
-    'screen_name' => $screen_name,
-    'count' => $count,
-    'trim_user' => 'false',
-    'exclude_replies' => !$user_include_replies,
-    'include_rts' => $user_include_rts,
-    'tweet_mode' => 'extended',
+	'screen_name' => $screen_name,
+	'count' => $count,
+	'trim_user' => 'false',
+	'exclude_replies' => !$user_include_replies,
+	'include_rts' => $user_include_rts,
+	'tweet_mode' => 'extended',
 );
 
 include "functions.php";
 
 if (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off'
-    || $_SERVER['SERVER_PORT'] == 443) {
+	|| $_SERVER['SERVER_PORT'] == 443) {
 
-    $protocol = 'https://';
+	$protocol = 'https://';
 } else {
-    $protocol = 'http://';
+	$protocol = 'http://';
 }
 
 print('<?xml version="1.0" encoding="utf-8"?>'. PHP_EOL);
